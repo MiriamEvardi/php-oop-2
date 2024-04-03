@@ -46,7 +46,12 @@
                         <div class="card-body">
                             <h5><?= $product->name ?></h5>
                             <h6><?= $product->category->getCategoryIcon() ?></h6>
-                            <?php if ($product = Food) ?>
+                            <?php if ($product instanceof Food) : ?>
+                                <p class="card-text">Gusto: <?= $product->protein ?></p>
+                                <p class="card-text">Calorie: <?= $product->calories ?></p>
+                            <?php elseif ($product instanceof Game) : ?>
+                                <p class="card-text">Tipo: <?= $product->material ?></p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

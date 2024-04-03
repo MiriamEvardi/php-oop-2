@@ -2,13 +2,13 @@
 
 class Food extends Product
 {
-    public $type;
+    public $protein;
     public $calories;
 
-    public function __construct($_name, $_price, $_image, $_type, $_calories)
+    public function __construct($_name, $_price, $_image, $_protein, $_calories)
     {
         parent::__construct($_name, $_price, $_image);
-        $this->type = $_type;
+        $this->protein = $_protein;
         $this->calories = $_calories;
     }
 }
