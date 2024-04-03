@@ -40,7 +40,7 @@
             foreach ($products as $product) {
 
             ?>
-                <div class="col d-flex justify-content-center">
+                <div class="row">
                     <div class="card" style="width: 18rem;">
                         <img src="<?= $product->image ?>" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -50,7 +50,7 @@
                                 <p class="card-text">Gusto: <?= $product->protein ?></p>
                                 <p class="card-text">Calorie: <?= $product->calories ?></p>
                             <?php elseif ($product instanceof Game) : ?>
-                                <p class="card-text">Tipo: <?= $product->material ?></p>
+                                <p class="card-text">Materiale: <?= $product->material ?></p>
                             <?php endif; ?>
                         </div>
                     </div>
