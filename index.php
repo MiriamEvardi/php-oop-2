@@ -25,9 +25,11 @@
             width: 100%;
         }
 
-        .item {
-            height: 200px;
-            border: solid 1px black;
+        .card {
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
         }
     </style>
 </head>
@@ -35,13 +37,11 @@
 <body>
 
     <div class="container">
-        <h1 class="text-center mt-3">Prodotti per animali</h2>
-            <?php
-            foreach ($products as $product) {
-
-            ?>
-                <div class="row">
-                    <div class="card" style="width: 18rem;">
+        <h1 class="text-center my-5">Prodotti per animali</h1>
+        <div class="row">
+            <?php foreach ($products as $product) : ?>
+                <div class="col-sm-4 mb-3">
+                    <div class="card">
                         <img src="<?= $product->image ?>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5><?= $product->name ?></h5>
@@ -52,15 +52,13 @@
                             <?php elseif ($product instanceof Game) : ?>
                                 <p class="card-text">Materiale: <?= $product->material ?></p>
                             <?php endif; ?>
+                            <div><?= 'Peso: ' . $product->getWeight() ?></div>
                         </div>
                     </div>
                 </div>
-            <?php
-            }
-            ?>
-
+            <?php endforeach; ?>
+        </div>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
