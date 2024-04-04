@@ -35,28 +35,36 @@
 </head>
 
 <body>
-
     <div class="container">
         <h1 class="text-center my-5">Prodotti per animali</h1>
         <div class="row">
-            <?php foreach ($products as $product) : ?>
-                <div class="col-sm-4 mb-3">
-                    <div class="card">
-                        <img src="<?= $product->image ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5><?= $product->name ?></h5>
-                            <h6><?= $product->category->getCategoryIcon() ?></h6>
-                            <?php if ($product instanceof Food) : ?>
-                                <p class="card-text">Gusto: <?= $product->protein ?></p>
-                                <p class="card-text">Calorie: <?= $product->calories ?></p>
-                            <?php elseif ($product instanceof Game) : ?>
-                                <p class="card-text">Materiale: <?= $product->material ?></p>
-                            <?php endif; ?>
-                            <div><?= 'Peso: ' . $product->getWeight() ?></div>
-                        </div>
+            <?php if ($error) : ?>
+                <div class="col-12">
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo $error; ?>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php else : ?>
+                <?php foreach ($products as $product) : ?>
+                    <div class="col-sm-4 mb-3">
+                        <div class="card">
+                            <img src="<?= $product->image ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5><?= $product->name ?></h5>
+                                <div class="mb-2"><?= '€ ' . $product->price ?></div>
+                                <h6><?= $product->category->getCategoryIcon() ?></h6>
+                                <?php if ($product instanceof Food) : ?>
+                                    <p class="card-text">Gusto: <?= $product->protein ?></p>
+                                    <p class="card-text">Calorie: <?= $product->calories ?></p>
+                                <?php elseif ($product instanceof Game) : ?>
+                                    <p class="card-text">Materiale: <?= $product->material ?></p>
+                                <?php endif; ?>
+                                <div><?= 'Peso: ' . $product->getWeight() ?></div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
 
