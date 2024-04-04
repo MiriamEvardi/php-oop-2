@@ -6,6 +6,10 @@ require_once './Models/Food.php';
 
 
 $error = null;
+$game1 = null;
+$game2 = null;
+$food1 = null;
+$food2 = null;
 try {
 
     $food1 = new Food("Croccantini per cani", 10.99, "https://content.dambros.it/uploads/2023/02/07071553/8012386390097-070.png", "Manzo", "406 Kcal/100gr");
@@ -14,7 +18,7 @@ try {
     $food1->setWeight("4kg");
 
 
-    $food2 = new Food("Scatolette per gatti", 5.99, "https://www.jonicamangimi.com/2572/scatolette-per-gatti-petreet-natura-tonno-rosa-con-salmone-tr-08-70-gr.jpg", "Tonno", "280 Kcal/100gr");
+    $food2 = new Food("Scatolette per gatti", 4.99, "https://www.jonicamangimi.com/2572/scatolette-per-gatti-petreet-natura-tonno-rosa-con-salmone-tr-08-70-gr.jpg", "Tonno", "280 Kcal/100gr");
     $food2Category = new Category("cat");
     $food2->category = $food2Category;
     $food2->setWeight("400g");
