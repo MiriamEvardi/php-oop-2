@@ -12,12 +12,19 @@ class Product
     {
         $this->name = $_name;
 
+
+        $this->image = $_image;
+    }
+
+    public function setPrice($_price)
+    {
+
+
         if (is_numeric($_price)) {
 
             $this->price = $_price;
         } else {
             throw new Exception("Il prezzo deve essere un valore numerico.");
         }
-        $this->image = $_image;
     }
 }
